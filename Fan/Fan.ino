@@ -48,11 +48,11 @@ static const char HTML[] PROGMEM = R"KEWL(
   <h1>风扇配网</h1><br>
   <form name='input' action='/' method='POST'>
         <div class='bb'>WiFi名称:</div> <br>
-        <input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'><br><br>
+        <input class='input' type='text' value='' placeholder='输入WiFi名称' name='ssid'><br><br>
         <div class='bb'>WiFi密码:</div><br>
-        <input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'><br><br>
+        <input class='input' type='password' value='' placeholder='输入WiFi密码' name='password'><br><br>
         <div class='bb'>点灯密钥:</div><br>
-        <input class='input' type='text' value='88d4ebf71de6' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
+        <input class='input' type='text' value='' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
         <input style='font-weight:bold ;font-size:x-large;' class='input' type='submit' value='配网'>
    </form>
    </div>
@@ -299,10 +299,10 @@ void led(int state) {
 }
 //****************************配网**********************
 
-int L1 = 3; //RXD 3
-int L2 = 0; //IO0
-int L3 = 2; //IO2
-int L4 = 1; //TXD 1
+int L1 = 3; //RXD 3 1档
+int L2 = 0; //IO0   2档
+int L3 = 2; //IO2   3档
+int L4 = 1; //TXD 1 摆风
 
 int fanLevel = 0;
 int hs = 0;
