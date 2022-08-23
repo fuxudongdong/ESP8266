@@ -15,6 +15,11 @@
 #include <DNSServer.h>
 #include <FS.h> //闪存文件系统
 
+//0fbae1d3bba4  壁扇
+//ad2634fb78ab  家里风扇
+//bdcdc3404089  操作间壁扇
+//88d4ebf71de6  循环扇
+
 //***************配网*********************
 
 String AP_NAME = "风扇_" + (String)ESP.getChipId(); //wifi名字
@@ -43,11 +48,11 @@ static const char HTML[] PROGMEM = R"KEWL(
   <h1>风扇配网</h1><br>
   <form name='input' action='/' method='POST'>
         <div class='bb'>WiFi名称:</div> <br>
-        <input class='input' type='text' value='' placeholder='输入WiFi名称' name='ssid'><br><br>
+        <input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'><br><br>
         <div class='bb'>WiFi密码:</div><br>
-        <input class='input' type='password' value='' placeholder='输入WiFi密码' name='password'><br><br>
+        <input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'><br><br>
         <div class='bb'>点灯密钥:</div><br>
-        <input class='input' type='text' value='' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
+        <input class='input' type='text' value='88d4ebf71de6' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
         <input style='font-weight:bold ;font-size:x-large;' class='input' type='submit' value='配网'>
    </form>
    </div>
@@ -165,7 +170,6 @@ void reConnect() {
     Serial.println(r);
     if (r >= 180000) {
       connectWiFi();
-      ESP.restart();
       break;
     } else {
       server.handleClient();
@@ -329,11 +333,11 @@ void miotHSwingState(const String & state) {//hs左右摆风
 
 void miotVSwingState(const String & state) {//vs上下摆风
   BLINKER_LOG("need set VSwing state:", state);
-  if (state == BLINKER_CMD_ON) {
+  if(state==BLINKER_CMD_ON){
     //setFan(4);
     BlinkerMIOT.vswing("on");
     BlinkerMIOT.print();
-  } else if (state == BLINKER_CMD_OFF) {
+  }else if(state==BLINKER_CMD_OFF){
     //setFan(5);
     BlinkerMIOT.vswing("off");
     BlinkerMIOT.print();
