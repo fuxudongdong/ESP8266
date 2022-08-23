@@ -379,7 +379,6 @@ void miotQuery(int32_t queryCode) {
 
 void aligenieLevel(uint8_t level) {
   BLINKER_LOG("need set level:", level);
-  Serial.println(level);
   setFan(level);
   BlinkerAliGenie.print();
 }
