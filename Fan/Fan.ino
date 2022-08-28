@@ -48,11 +48,11 @@ static const char HTML[] PROGMEM = R"KEWL(
   <h1>风扇配网</h1><br>
   <form name='input' action='/' method='POST'>
         <div class='bb'>WiFi名称:</div> <br>
-        <input class='input' type='text' value='' placeholder='输入WiFi名称' name='ssid'><br><br>
+        <input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'><br><br>
         <div class='bb'>WiFi密码:</div><br>
-        <input class='input' type='password' value='' placeholder='输入WiFi密码' name='password'><br><br>
+        <input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'><br><br>
         <div class='bb'>点灯密钥:</div><br>
-        <input class='input' type='text' value='' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
+        <input class='input' type='text' value='bdcdc3404089' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
         <input style='font-weight:bold ;font-size:x-large;' class='input' type='submit' value='配网'>
    </form>
    </div>
@@ -169,7 +169,7 @@ void reConnect() {
     r = millis() - rMillis;
     Serial.println(r);
     if (r >= 180000) {
-      connectWiFi();
+      ESP.restart(); gvhhyngnnnn-u8769
       break;
     } else {
       server.handleClient();
@@ -333,11 +333,11 @@ void miotHSwingState(const String & state) {//hs左右摆风
 
 void miotVSwingState(const String & state) {//vs上下摆风
   BLINKER_LOG("need set VSwing state:", state);
-  if(state==BLINKER_CMD_ON){
+  if (state == BLINKER_CMD_ON) {
     //setFan(4);
     BlinkerMIOT.vswing("on");
     BlinkerMIOT.print();
-  }else if(state==BLINKER_CMD_OFF){
+  } else if (state == BLINKER_CMD_OFF) {
     //setFan(5);
     BlinkerMIOT.vswing("off");
     BlinkerMIOT.print();
@@ -349,8 +349,10 @@ void miotPowerState(const String & state)     //小爱同学控制指令
   BLINKER_LOG("need power state: ", state);
   if (state == "off") {
     setFan(0);//关风扇
+    BlinkerMIOT.powerState("off");
   } else {
     setFan(3);//风扇3档
+    BlinkerMIOT.level(fanLevel);
   }
   BlinkerMIOT.print();
 
@@ -380,6 +382,7 @@ void miotQuery(int32_t queryCode) {
 void aligenieLevel(uint8_t level) {
   BLINKER_LOG("need set level:", level);
   setFan(level);
+  BlinkerAliGenie.level(level);
   BlinkerAliGenie.print();
 }
 
@@ -387,9 +390,11 @@ void aligenieHSwingState(const String & state) {//hs左右摆风
   BLINKER_LOG("need set HSwing state:", state);
   if (state == BLINKER_CMD_ON) {
     setFan(4); //开启左右摆风
+    BlinkerAliGenie.hswing("on");
     BlinkerAliGenie.print();
   } else if (state == BLINKER_CMD_OFF) {
     setFan(5); //关闭左右摆风
+    BlinkerAliGenie.hswing("off");
     BlinkerAliGenie.print();
   }
 }
@@ -397,7 +402,7 @@ void aligenieHSwingState(const String & state) {//hs左右摆风
 void aligenieMode(const String & mode)
 {
   BLINKER_LOG("need set mode: ", mode);
-
+  //
   BlinkerAliGenie.mode(mode);
   BlinkerAliGenie.print();
 }
@@ -420,8 +425,10 @@ void aligeniePowerState(const String & state)//天猫精灵
   BLINKER_LOG("need power state: ", state);
   if (state == "off") {
     setFan(0);//关风扇
+    BlinkerAliGenie.powerState("off");
   } else {
     setFan(3);//风扇3档
+    BlinkerAliGenie.level(3);
   }
   BlinkerAliGenie.print();
 
@@ -454,6 +461,7 @@ void duerLevel(uint8_t level)
   // 0:AUTO MODE, 1-3 LEVEL
 
   setFan(level);
+  BlinkerDuerOS.level(level);
   BlinkerDuerOS.print();
 }
 
@@ -462,6 +470,7 @@ void duerRelativeLevel(int32_t level)
   BLINKER_LOG("need set relative level: ", level);
   // 0:AUTO MODE, 1-3 LEVEL
   setFan(level + 1);
+  BlinkerDuerOS.level(level + 1);
   BlinkerDuerOS.print();
 }
 
@@ -492,10 +501,12 @@ void duerPowerState(const String & state)
 
   if (state == BLINKER_CMD_ON) {
     setFan(3);
+    BlinkerDuerOS.level(3);
     BlinkerDuerOS.print();
   }
   else {
     setFan(0);
+    BlinkerDuerOS.powerState("off");
     BlinkerDuerOS.print();
   }
 }
