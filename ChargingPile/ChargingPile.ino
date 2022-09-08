@@ -45,7 +45,7 @@ int keyPin = 3;
 int cpPin = 1;
 
 bool onlyLowPowerOn = true;
-int r1State = 0;
+bool r1State = false;
 //***************配网*********************
 
 //88d4ebf71de6 测试
@@ -710,19 +710,16 @@ void key() {
   int j = 0;
   jMillis = millis();
   while (!digitalRead(keyPin)) {
-    if (olp != onlyLowPowerOn) {
+    j = millis() - jMillis;
+    if (j >= 2000 and j < 2100) {
+      onlyLowPowerOn = !onlyLowPowerOn;
       if (onlyLowPowerOn) {
         if (!lowPowerTime()) {
-          r1Power(0);
+          r1Power(0);     
         }
       } else {
         r1Power(1);
       }
-    }
-    j = millis() - jMillis;
-    if (j >= 3000 and j < 3100) {
-      onlyLowPowerOn = !onlyLowPowerOn;
-
       Serial.println("开关仅谷电可用");
     } else if (j >= 10000) {
       fl.remove();
@@ -733,7 +730,7 @@ void key() {
     }
     delay(100);
   }
-  if (j > 50 and j < 3000 ) {
+  if (j > 20 and j < 2000 ) {
     r1Power(!r1State);
     Serial.println("启动或关闭");
   }
