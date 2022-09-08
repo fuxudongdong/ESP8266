@@ -169,7 +169,7 @@ void reConnect() {
     r = millis() - rMillis;
     Serial.println(r);
     if (r >= 180000) {
-      ESP.restart(); gvhhyngnnnn-u8769
+      ESP.restart();
       break;
     } else {
       server.handleClient();
