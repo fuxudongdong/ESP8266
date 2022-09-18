@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:\\文档\\Arduino Project\\arduino-1.8.19\\libraries",
+                "D:\\文档\\GitHub\\arduino-1.8.19\\libraries",
                 "D:\\文档\\GitHub\\MyLibraries",
                 "D:\\文档\\Arduino\\libraries",
                 "C:/Users/fuxudong/AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.0.2\\libraries"
