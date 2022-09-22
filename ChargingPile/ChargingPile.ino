@@ -14,7 +14,7 @@
 //#include "ritos.h" //多线�?
 
 String AP_NAME = "充电桩_" + (String)ESP.getChipId(); // wifi名字
-String AP_Pswd = "66666666";
+String AP_Pswd = "";
 const byte DNS_PORT = 53;        // DNS�?口�??
 IPAddress apIP(192, 168, 66, 1); // esp8266-AP-IP地址
 ESP8266WebServer server(80);     //创建WebServer
@@ -65,11 +65,11 @@ static const char HTML[] PROGMEM = R"KEWL(
   <h1>充电设备配网</h1><br>
   <form name='input' action='/' method='POST'>
         <div class='bb'>WiFi名称:</div> <br>
-        <input class='input' type='text' value='xier-hx-01' placeholder='输入SSID' name='ssid'><br><br>
+        <input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入SSID' name='ssid'><br><br>
         <div class='bb'>WiFi密码:</div><br>
-        <input class='input' type='password' value='xier0571@' placeholder='输入密码' name='pswd'><br><br>
+        <input class='input' type='password' value='3.1415926' placeholder='输入密码' name='pswd'><br><br>
         <div class='bb'>点灯密钥:</div><br>
-        <input class='input' type='text' value='d5f4f1151c3b' placeholder='输入点灯密钥' name='auth'><br><br>
+        <input class='input' type='text' value='88d4ebf71de6' placeholder='输入点灯密钥' name='auth'><br><br>
         <div class='bb'>谷电开始时刻:
         <select class='select' name='startH'>
           <option value='22'>22</option>
