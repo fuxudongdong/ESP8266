@@ -96,7 +96,7 @@ static const char HTML[] PROGMEM = R"KEWL(
           <option value='3'>03</option>
           <option value='2'>02</option>
           <option value='1'>01</option>
-         </select>时?
+         </select>时
          <select class='select' name='startM'>
             <option value='5'>05</option>
             <option value='10'>10</option>
