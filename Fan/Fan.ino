@@ -47,13 +47,21 @@ static const char HTML[] PROGMEM = R"KEWL(
 <div class="main">
   <h1>风扇配网</h1><br>
   <form name='input' action='/' method='POST'>
-        <div class='bb'>WiFi名称:</div> <br>
-        <input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'><br><br>
-        <div class='bb'>WiFi密码:</div><br>
-        <input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'><br><br>
-        <div class='bb'>点灯密钥:</div><br>
-        <input class='input' type='text' value='bdcdc3404089' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
-        <input style='font-weight:bold ;font-size:x-large;' class='input' type='submit' value='配网'>
+  <div class='bb' style='.text-align:center;'><table style='.width:100%';>
+  <tr><td>xier-hx-guest</td><td>选择</td></tr>
+  <tr class='bb'><td>xier-hx-01</td><td>选择</td></tr>
+  <tr class='bb'><td>xier-fat-ap</td><td>选择</td></tr>
+  <tr><td>HUAWEI-LeaderAP-D2C0</td><td>选择</td></tr>
+  <tr><td>DIRECT-bz-EPSON-L15160 Series</td><td>选择</td></tr>
+        <tr><td colspan='2' class='ssid' style='.height:25;'></td> </tr>
+        <tr><td colspan='2' class='bb'>WiFi名称: </td></tr>
+        <tr><td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'></td> </tr>
+        <tr><td colspan='2' class='bb'>WiFi密码: </td></tr>
+        <tr><td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'></td> </tr>
+        <tr><td colspan='2' class='bb'>点灯密钥: </td></tr>
+        <tr><td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089' placeholder='输入点灯密钥' name='authkey'></td> </tr>
+        <tr><td colspan='2' class='ssid' style='.height:25;'></td> </tr>
+        <tr><td colspan='2' class='ssid'><input style='padding-left: 0px;' class='input' type='submit' value='点击配网'></td> </tr></table>
    </form>
    </div>
 </body>
@@ -61,37 +69,41 @@ static const char HTML[] PROGMEM = R"KEWL(
     html,body{
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
+        margin: 0px auto;
+    }
+    .ssid{
+        width:100%;
+        text-align:center;
+    }
+    td{
+        height:25px;
     }
     .main{
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
         text-align: center;
         font-weight:bold ;
+        margin: 0px auto;
     }
     .input{
         resize: none;
         outline: none;
-        margin: 4px auto;
         height: 45px;
-        width: 80%;
+        width: 90%;
         border: 1px solid #d0d1ce;
         padding-left: 15px;
         font-size: 14px;
         color: #000;
-        margin-left: 10px;
+        margin-left: 0px;
         border-radius: 10px;
         border: 1px solid #dcdfe6;
         background-color: #ffffff;
     } 
     .bb{
-        width: 80%;
-        margin: 0px auto;
+        width: 90%;
         text-align: left;
         padding-left: 2px;
+        margin-left: 10px;
         height: 0px;
         font-weight:bold ;
     }
@@ -183,7 +195,7 @@ void reConnect()
     {
         led(1);
         r = millis() - rMillis;
-        Serial.println(r);
+        // Serial.println(r);
         if (r >= 180000)
         {
             ESP.restart();

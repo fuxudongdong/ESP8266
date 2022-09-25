@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配网</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>风扇配网</h1><br>
+        <form name='input' action='/' method='POST'>
+            <div class='bb' style='text-align:center;'>
+                <table style='width:100%' ;>
+                    <tr>
+                        <td><button
+                                onclick="document.getElementsByName('ssid').values='xier-hx-guest';">xier-hx-guest</button>
+                        </td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr class='bb'>
+                        <td id='ssid2'>xier-hx-01</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr class='bb'>
+                        <td id='ssid3'>xier-fat-ap</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr>
+                        <td id='ssid4'>HUAWEI-LeaderAP-D2C0</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr>
+                        <td id='ssid5'>DIRECT-bz-EPSON-L15160 Series</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi名称: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                                placeholder='输入WiFi名称' name='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi密码: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                                placeholder='输入WiFi密码' name='password'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>点灯密钥: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                                placeholder='输入点灯密钥' name='authkey'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input style='padding-left: 0px; font-weight: bold;' class='input'
+                                type='submit' value='点击配网'></td>
+                    </tr>
+                </table>
+        </form>
+    </div>
+</body>
+<style>
+    html,
+    body {
+        width: 90%;
+        height: 100%;
+        margin: 0px auto;
+    }
+
+    .ssid {
+        width: 100%;
+        text-align: center;
+    }
+
+    td {
+        height: 25px;
+        text-align: left;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-weight: bold;
+        margin: 0px auto;
+    }
+
+    .input {
+        resize: none;
+        outline: none;
+        height: 45px;
+        width: 100%;
+        border: 1px solid #d0d1ce;
+        padding-left: 15px;
+        font-size: 14px;
+        color: #000;
+        margin-left: 0px;
+        border-radius: 10px;
+        border: 1px solid #dcdfe6;
+        background-color: #ffffff;
+    }
+
+    .bb {
+        width: 100%;
+        text-align: left;
+        padding-left: 2px;
+        margin-left: 10px;
+        height: 0px;
+        font-weight: bold;
+    }
+</style>
+<script>
+    function c(ssid) {
+        document.getElementsByName("ssid").values = ssid;
+    }
+</script>
+
+</html>
