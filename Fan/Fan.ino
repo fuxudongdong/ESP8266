@@ -48,13 +48,21 @@ static const char HTML[] PROGMEM = R"KEWL(
 <div class="main">
   <h1>风扇配网</h1><br>
   <form name='input' action='/' method='POST'>
-        <div class='bb'>WiFi名称:</div> <br>
-        <input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'><br><br>
-        <div class='bb'>WiFi密码:</div><br>
-        <input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'><br><br>
-        <div class='bb'>点灯密钥:</div><br>
-        <input class='input' type='text' value='0fbae1d3bba4' placeholder='输入点灯密钥' name='authkey'><br><br><br><br>
-        <input style='font-weight:bold ;font-size:x-large;' class='input' type='submit' value='配网'>
+  <div class='bb' style='.text-align:center;'><table style='.width:100%';>
+  <tr><td>xier-hx-guest</td><td>选择</td></tr>
+  <tr class='bb'><td>xier-hx-01</td><td>选择</td></tr>
+  <tr class='bb'><td>xier-fat-ap</td><td>选择</td></tr>
+  <tr><td>HUAWEI-LeaderAP-D2C0</td><td>选择</td></tr>
+  <tr><td>DIRECT-bz-EPSON-L15160 Series</td><td>选择</td></tr>
+        <tr><td colspan='2' class='ssid' style='.height:25;'></td> </tr>
+        <tr><td colspan='2' class='bb'>WiFi名称: </td></tr>
+        <tr><td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'></td> </tr>
+        <tr><td colspan='2' class='bb'>WiFi密码: </td></tr>
+        <tr><td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'></td> </tr>
+        <tr><td colspan='2' class='bb'>点灯密钥: </td></tr>
+        <tr><td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089' placeholder='输入点灯密钥' name='authkey'></td> </tr>
+        <tr><td colspan='2' class='ssid' style='.height:25;'></td> </tr>
+        <tr><td colspan='2' class='ssid'><input style='padding-left: 0px;' class='input' type='submit' value='点击配网'></td> </tr></table>
    </form>
    </div>
 </body>
@@ -62,37 +70,41 @@ static const char HTML[] PROGMEM = R"KEWL(
     html,body{
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
+        margin: 0px auto;
+    }
+    .ssid{
+        width:100%;
+        text-align:center;
+    }
+    td{
+        height:25px;
     }
     .main{
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
         text-align: center;
         font-weight:bold ;
+        margin: 0px auto;
     }
     .input{
         resize: none;
         outline: none;
-        margin: 4px auto;
         height: 45px;
-        width: 80%;
+        width: 90%;
         border: 1px solid #d0d1ce;
         padding-left: 15px;
         font-size: 14px;
         color: #000;
-        margin-left: 10px;
+        margin-left: 0px;
         border-radius: 10px;
         border: 1px solid #dcdfe6;
         background-color: #ffffff;
     } 
     .bb{
-        width: 80%;
-        margin: 0px auto;
+        width: 90%;
         text-align: left;
         padding-left: 2px;
+        margin-left: 10px;
         height: 0px;
         font-weight:bold ;
     }
@@ -109,9 +121,9 @@ void handleRootPost()
 { // Post回调函数
     web = false;
     if (server.hasArg("ssid"))
-    {                              //判断是否有账号参数
-        ssid = server.arg("ssid"); //将账号参数拷贝到my_ssid中
-        Serial.println("WiFi账号：" + ssid);
+    {                                      //判断是否有账号参数
+        ssid = server.arg("ssid").c_str(); //将账号参数拷贝到my_ssid中
+        Serial.println("WiFi账号：" + (String)ssid);
     }
     else
     { //没有参数
@@ -121,8 +133,8 @@ void handleRootPost()
     }
     if (server.hasArg("password"))
     {
-        pswd = server.arg("password");
-        Serial.println("WiFi密码：" + pswd);
+        pswd = server.arg("password").c_str();
+        Serial.println("WiFi密码：" + (String)pswd);
     }
     else
     {
@@ -132,8 +144,8 @@ void handleRootPost()
     }
     if (server.hasArg("authkey"))
     {
-        auth = server.arg("authkey");
-        Serial.println("点灯密钥：" + auth);
+        auth = server.arg("authkey").c_str();
+        Serial.println("点灯密钥：" + (String)auth);
     }
     else
     {
@@ -141,7 +153,7 @@ void handleRootPost()
         server.send(200, "text/html", "<meta charset='UTF-8'>错误，未找到点灯密钥");
         return;
     }
-    server.send(200, "text/html", "<meta charset='utf-8' style=' font - size : 30px '>上传成功，正在配网"); //返回保存成功页面
+    server.send(200, "text/html", "<meta charset='utf-8'>上传成功，正在配网"); //返回保存成功页面
     delay(2000);
     server.stop();
     connectNewWiFi();
@@ -508,12 +520,14 @@ void duerPowerState(const String &state)
     BLINKER_LOG("need set power state: ", state);
 
     if (state == BLINKER_CMD_ON)
+
     {
         setFan(3);
         BlinkerDuerOS.level(3);
         BlinkerDuerOS.print();
     }
     else
+
     {
         setFan(0);
         BlinkerDuerOS.powerState("off");
@@ -592,6 +606,7 @@ void sliderSpeed_callback(int32_t value)
 {
     BLINKER_LOG("get slider value: ", value);
     switch (value)
+
     {
     case 0:
         btnHand.color("#808080");
@@ -686,11 +701,14 @@ void heartbeat()
     }
     sliderSpeed.print(fanLevel);
     if (hs)
+
     {
         btnHand.color("#00ff00");
         btnHand.print("on");
     }
+
     else
+
     {
         btnHand.color("#808080");
         btnHand.print("off");
@@ -712,14 +730,14 @@ void setup()
     BlinkerMIOT.attachQuery(miotQuery);
     BlinkerMIOT.attachLevel(miotLevel);
     BlinkerMIOT.attachHSwing(miotHSwingState);
-    // BlinkerMIOT.attachVSwing(miotVSwingState);
+    //  BlinkerMIOT.attachVSwing(miotVSwingState);
 
     BlinkerAliGenie.attachPowerState(aligeniePowerState); //天猫
     BlinkerAliGenie.attachQuery(aligenieQuery);           //天猫
     BlinkerAliGenie.attachLevel(aligenieLevel);
     BlinkerAliGenie.attachHSwing(aligenieHSwingState);
     BlinkerAliGenie.attachMode(aligenieMode);
-    // BlinkerMIOT.attachVSwing(aligenieVSwingState);
+    //  BlinkerMIOT.attachVSwing(aligenieVSwingState);
 
     BlinkerDuerOS.attachPowerState(duerPowerState);
     BlinkerDuerOS.attachLevel(duerLevel);
@@ -731,7 +749,7 @@ void setup()
     Blinker.attachHeartbeat(heartbeat);
     Blinker.attachSummary(summary);
 
-    // BLINKER_DEBUG.stream(Serial);
+    //  BLINKER_DEBUG.stream(Serial);
 
     connectWiFi();
 
@@ -750,11 +768,13 @@ void switch_callback(const String &state)
 {
     BLINKER_LOG("get switch state: ", state);
     if (state == BLINKER_CMD_ON)
+
     {
         setFan(3);
         BUILTIN_SWITCH.print("on");
     }
     else if (state == BLINKER_CMD_OFF)
+
     {
         setFan(0);
         BUILTIN_SWITCH.print("off");
