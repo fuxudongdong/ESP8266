@@ -36,79 +36,146 @@ String ssid;
 String pswd;
 
 static const char HTML[] PROGMEM = R"KEWL(
-<!DOCTYPE html>
-<html lang='en'>
+    <!DOCTYPE html
+    PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>风扇配网</title>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配网</title>
 </head>
+
 <body>
-<div class="main">
-  <h1>风扇配网</h1><br>
-  <form name='input' action='/' method='POST'>
-  <div class='bb' style='.text-align:center;'><table style='.width:100%';>
-  <tr><td>xier-hx-guest</td><td>选择</td></tr>
-  <tr class='bb'><td>xier-hx-01</td><td>选择</td></tr>
-  <tr class='bb'><td>xier-fat-ap</td><td>选择</td></tr>
-  <tr><td>HUAWEI-LeaderAP-D2C0</td><td>选择</td></tr>
-  <tr><td>DIRECT-bz-EPSON-L15160 Series</td><td>选择</td></tr>
-        <tr><td colspan='2' class='ssid' style='.height:25;'></td> </tr>
-        <tr><td colspan='2' class='bb'>WiFi名称: </td></tr>
-        <tr><td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi' placeholder='输入WiFi名称' name='ssid'></td> </tr>
-        <tr><td colspan='2' class='bb'>WiFi密码: </td></tr>
-        <tr><td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926' placeholder='输入WiFi密码' name='password'></td> </tr>
-        <tr><td colspan='2' class='bb'>点灯密钥: </td></tr>
-        <tr><td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089' placeholder='输入点灯密钥' name='authkey'></td> </tr>
-        <tr><td colspan='2' class='ssid' style='.height:25;'></td> </tr>
-        <tr><td colspan='2' class='ssid'><input style='padding-left: 0px;' class='input' type='submit' value='点击配网'></td> </tr></table>
-   </form>
-   </div>
+    <div class="main">
+        <form name='input' action='/' method='POST'>
+            <div class='bb' style='text-align:center;'>
+                <table style='width:100%' ;>
+                    <tr>
+                        <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">风扇配网</td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c('xier-hx-guest')" class="ssidList">
+                                xier-hx-guest</div>
+                        </td>
+                        <td style='text-align: right;width:35px'>
+                            <div onclick="c('xier-hx-guest')" class="ssidList" style='text-align:right' ;>选择</div>
+                        </td>
+                    </tr>
+                    <tr class='bb'>
+                        <td id='ssid2'>xier-hx-01</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr class='bb'>
+                        <td id='ssid3'>xier-fat-ap</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr>
+                        <td id='ssid4'>HUAWEI-LeaderAP-D2C0</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr>
+                        <td id='ssid5'>DIRECT-bz-EPSON-L15160 Series</td>
+                        <td style='text-align: right;'>选择</td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi名称: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                                placeholder='输入WiFi名称' name='ssid' id="ssid"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi密码: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                                placeholder='输入WiFi密码' name='password' id="pwd"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>点灯密钥: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                                placeholder='输入点灯密钥' name='authkey'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input style='padding-left: 0px; font-weight: bold;' class='input'
+                                type='submit' value='点击配网'>
+                        </td>
+                    </tr>
+                </table>
+        </form>
+    </div>
 </body>
 <style>
-    html,body{
+    input,
+    div,
+    table {
+        width: 300px;
+        margin: auto;
+    }
+
+    .ssidList {
         width: 100%;
         height: 100%;
-        margin: 0px auto;
+        cursor: pointer;
+        text-align: left;
     }
-    .ssid{
-        width:100%;
-        text-align:center;
-    }
-    td{
-        height:25px;
-    }
-    .main{
-        width: 100%;
-        height: 100%;
+
+    .ssid {
         text-align: center;
-        font-weight:bold ;
-        margin: 0px auto;
     }
-    .input{
+
+    td {
+        height: 25px;
+        text-align: left;
+    }
+
+    .main {
+        height: 100%;
+        font-weight: bold;
+    }
+
+    .input {
         resize: none;
         outline: none;
         height: 45px;
-        width: 90%;
         border: 1px solid #d0d1ce;
-        padding-left: 15px;
         font-size: 14px;
         color: #000;
-        margin-left: 0px;
         border-radius: 10px;
         border: 1px solid #dcdfe6;
         background-color: #ffffff;
-    } 
-    .bb{
-        width: 90%;
+    }
+
+    .bb {
         text-align: left;
-        padding-left: 2px;
-        margin-left: 10px;
-        height: 0px;
-        font-weight:bold ;
+        font-weight: bold;
     }
 </style>
+<script>
+    var ssidText = document.getElementById("ssid");
+    var pwdText = document.getElementById("pwd");
+    function c(ssid) {
+        ssidText.value = ssid;
+        pwdText.scrollIntoView();
+        pwdText.value = "";
+        pwdText.focus();
+    }
+</script>
+
 </html>)KEWL";
 
 void handleRoot()
@@ -196,7 +263,7 @@ void reConnect()
     {
         led.mode(1);
         r = millis() - rMillis;
-        Serial.println(r);
+        // Serial.println(r);
         if (r >= 180000)
         {
             ESP.restart();
