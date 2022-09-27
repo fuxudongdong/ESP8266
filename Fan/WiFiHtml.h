@@ -1,5 +1,7 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+#ifndef _WiFiPage_
+#define _WiFiPage_
+const char title[] PROGMEM = R"KEWL(<!DOCTYPE html
+    PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html lang="en">
 
 <head>
@@ -14,59 +16,34 @@
         <form name='input' action='/' method='POST'>
             <div class='bb' style='text-align:center;'>
                 <table style='width:100%' ;>
-                    <tr>
+                <tr>
                         <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">风扇配网</td>
                     </tr>
                     <tr>
                         <td colspan='2' class='ssid'></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div onclick="c('xier-hx-guest')" class="ssidList">
-                                xier-hx-guest</div>
-                        </td>
-                        <td style='text-align: right;width:35px'>
-                            <div onclick="c('xier-hx-guest')" class="ssidList" style='text-align:right'>选择</div>
-                        </td>
-                    </tr>
-                    <tr class='bb'>
-                        <td id='ssid2'>xier-hx-01</td>
-                        <td style='text-align: right;'>选择</td>
-                    </tr>
-                    <tr class='bb'>
-                        <td id='ssid3'>xier-fat-ap</td>
-                        <td style='text-align: right;'>选择</td>
-                    </tr>
-                    <tr>
-                        <td id='ssid4'>HUAWEI-LeaderAP-D2C0</td>
-                        <td style='text-align: right;'>选择</td>
-                    </tr>
-                    <tr>
-                        <td id='ssid5'>DIRECT-bz-EPSON-L15160 Series</td>
-                        <td style='text-align: right;'>选择</td>
-                    </tr>
-                    <tr>
+                    </tr>)KEWL";
+const char input[] PROGMEM = R"KEWL(<tr>
                         <td colspan='2' class='ssid'></td>
                     </tr>
                     <tr>
                         <td colspan='2' class='bb'>WiFi名称: </td>
                     </tr>
                     <tr>
-                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                        <td colspan='2' class='ssid'><input class='input' type='text' value=''
                                 placeholder='输入WiFi名称' name='ssid' id="ssid"></td>
                     </tr>
                     <tr>
                         <td colspan='2' class='bb'>WiFi密码: </td>
                     </tr>
                     <tr>
-                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                        <td colspan='2' class='ssid'><input class='input' type='password' value=''
                                 placeholder='输入WiFi密码' name='password' id="pwd"></td>
                     </tr>
                     <tr>
                         <td colspan='2' class='bb'>点灯密钥: </td>
                     </tr>
                     <tr>
-                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                        <td colspan='2' class='ssid'><input class='input' type='text' value=''
                                 placeholder='输入点灯密钥' name='authkey'></td>
                     </tr>
                     <tr>
@@ -87,7 +64,6 @@
     table {
         width: 300px;
         margin: auto;
-        text-align: center;
     }
 
     .ssidList {
@@ -121,6 +97,7 @@
         border-radius: 10px;
         border: 1px solid #dcdfe6;
         background-color: #ffffff;
+        text-align:center;
     }
 
     .bb {
@@ -139,4 +116,5 @@
     }
 </script>
 
-</html>
+</html>)KEWL";
+#endif
