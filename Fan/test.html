@@ -1,0 +1,505 @@
+<!DOCTYPE html
+    PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配网</title>
+</head>
+
+<body>
+    <div class="main">
+        <form name='input' action='/' method='POST'>
+            <div class='bb' style='text-align:center;'>
+                <table style='width:100%' ;>
+                    <tr>
+                        <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">风扇配网</td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-hx-01")" class='ssidList'>xier-hx-01</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-hx-01")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-hx-guest")" class='ssidList'>xier-hx-guest</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-hx-guest")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" DIRECT-QYFUXUDONGmsLO")" class='ssidList'>DIRECT-QYFUXUDONGmsLO</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" DIRECT-QYFUXUDONGmsLO")" class='ssidList' style='text-align:right'>选��
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" hw_manage_d380")" class='ssidList'>hw_manage_d380</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" hw_manage_d380")" class='ssidList' style='text-align:right'>选��</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" HUAWEI-LeaderAP-D2C0")" class='ssidList'>HUAWEI-LeaderAP-D2C0</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" HUAWEI-LeaderAP-D2C0")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-fat-ap")" class='ssidList'>xier-fat-ap</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-fat-ap")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi名称: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                                placeholder='��入WiFi名称' name='ssid' id="ssid"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi密码: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                                placeholder='输入WiFi密码' name='password' id="pwd"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>点灯密钥: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                                placeholder='输入点灯密钥' name='authkey'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input style='padding-left: 0px; font-weight: bold;' class='input'
+                                type='submit' value='点击配网'>
+                        </td>
+                    </tr>
+                </table>
+        </form>
+    </div>
+</body>
+<style>
+    input,
+    div,
+    table {
+        width: 300px;
+        margin: auto;
+    }
+
+    .ssidList {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .ssid {
+        text-align: center;
+    }
+
+    td {
+        height: 25px;
+        text-align: left;
+    }
+
+    .main {
+        height: 100%;
+        font-weight: bold;
+    }
+
+    .input {
+        resize: none;
+        outline: none;
+        height: 45px;
+        border: 1px solid #d0d1ce;
+        font-size: 14px;
+        color: #000;
+        border-radius: 10px;
+        border: 1px solid #dcdfe6;
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    .bb {
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<script>
+    var ssidText = document.getElementById("ssid");
+    var pwdText = document.getElementById("pwd");
+    function c(ssid) {
+        ssidText.value = ssid;
+        pwdText.scrollIntoView();
+        pwdText.value = "";
+        pwdText.focus();
+    }
+</script>
+
+</html>
+开始扫描WiFi
+26 扫描到WiFi:
+1: xier-hx-01 -47dB
+2: xier-hx-guest -47dB
+3: DIRECT-QYFUXUDONGmsLO -15dB
+4: HUAWEI-LeaderAP-D2C0 -65dB
+5: xier-fat-ap -65dB
+<!DOCTYPE html
+    PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配网</title>
+</head>
+
+<body>
+    <div class="main">
+        <form name='input' action='/' method='POST'>
+            <div class='bb' style='text-align:center;'>
+                <table style='width:100%' ;>
+                    <tr>
+                        <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">风扇���网</td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-hx-01")" class='ssidList'>xier-hx-01</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-hx-01")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-hx-guest")" class='ssidList'>xier-hx-guest</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-hx-guest")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" DIRECT-QYFUXUDONGmsLO")" class='ssidList'>DIRECT-QYFUXUDONGmsLO</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" DIRECT-QYFUXUDONGmsLO")" class='ssidList' style='text-align:right'>选择
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" HUAWEI-LeaderAP-D2C0")" class='ssidList'>HUAWEI-LeaderAP-D2C0</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" HUAWEI-LeaderAP-D2C0")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-fat-ap")" class='ssidList'>xier-fat-ap</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-fat-ap")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi名称: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                                placeholder='输入WiFi名称' name='ssid' id="ssid"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi密码: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                                placeholder='输入WiFi密码' name='password' id="pwd"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>点灯密钥: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                                placeholder='输入点灯密钥' name='authkey'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input style='padding-left: 0px; font-weight: bold;' class='input'
+                                type='submit' value='点击配网'>
+                        </td>
+                    </tr>
+                </table>
+        </form>
+    </div>
+</body>
+<style>
+    input,
+    div,
+    table {
+        width: 300px;
+        margin: auto;
+    }
+
+    .ssidList {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .ssid {
+        text-align: center;
+    }
+
+    td {
+        height: 25px;
+        text-align: left;
+    }
+
+    .main {
+        height: 100%;
+        font-weight: bold;
+    }
+
+    .input {
+        resize: none;
+        outline: none;
+        height: 45px;
+        border: 1px solid #d0d1ce;
+        font-size: 14px;
+        color: #000;
+        border-radius: 10px;
+        border: 1px solid #dcdfe6;
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    .bb {
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<script>
+    var ssidText = document.getElementById("ssid");
+    var pwdText = document.getElementById("pwd");
+    function c(ssid) {
+        ssidText.value = ssid;
+        pwdText.scrollIntoView();
+        pwdText.value = "";
+        pwdText.focus();
+    }
+</script>
+
+</html>
+开始扫描WiFi
+24 扫描到WiFi:
+1: DIRECT-QYFUXUDONGmsLO -14dB
+2: xier-hx-01 -45dB
+3: xier-hx-guest -45dB
+4: HUAWEI-LeaderAP-D2C0 -66dB
+5: hw_manage_d380 -74dB
+6: xier-fat-ap -67dB
+<!DOCTYPE html
+    PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配网</title>
+</head>
+
+<body>
+    <div class="main">
+        <form name='input' action='/' method='POST'>
+            <div class='bb' style='text-align:center;'>
+                <table style='width:100%' ;>
+                    <tr>
+                        <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">风扇配网</td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" DIRECT-QYFUXUDONGmsLO")" class='ssidList'>DIRECT-QYFUXUDONGmsLO</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" DIRECT-QYFUXUDONGmsLO")" class='ssidList' style='text-align:right'>选择
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-hx-01")" class='ssidList'>xier-hx-01</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-hx-01")" class='ssidList' style='text-align:right'>��择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-hx-guest")" class='ssidList'>xier-hx-guest</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-hx-guest")" class='ssidList' style='text-align:right'>选��</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" HUAWEI-LeaderAP-D2C0")" class='ssidList'>HUAWEI-LeaderAP-D2C0</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" HUAWEI-LeaderAP-D2C0")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" hw_manage_d380")" class='ssidList'>hw_manage_d380</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" hw_manage_d380")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="c(" xier-fat-ap")" class='ssidList'>xier-fat-ap</div>
+                        </td>
+                        <td style='text-align:right;width:35px'>
+                            <div onclick="c(" xier-fat-ap")" class='ssidList' style='text-align:right'>选择</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi名称: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                                placeholder='��入WiFi名称' name='ssid' id="ssid"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>WiFi密码: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                                placeholder='输入WiFi密码' name='password' id="pwd"></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='bb'>点灯密钥: </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                                placeholder='输入点灯密钥' name='authkey'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='2' class='ssid'><input style='padding-left: 0px; font-weight: bold;' class='input'
+                                type='submit' value='点击配网'>
+                        </td>
+                    </tr>
+                </table>
+        </form>
+    </div>
+</body>
+<style>
+    input,
+    div,
+    table {
+        width: 300px;
+        margin: auto;
+    }
+
+    .ssidList {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .ssid {
+        text-align: center;
+    }
+
+    td {
+        height: 25px;
+        text-align: left;
+    }
+
+    .main {
+        height: 100%;
+        font-weight: bold;
+    }
+
+    .input {
+        resize: none;
+        outline: none;
+        height: 45px;
+        border: 1px solid #d0d1ce;
+        font-size: 14px;
+        color: #000;
+        border-radius: 10px;
+        border: 1px solid #dcdfe6;
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    .bb {
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+<script>
+    var ssidText = document.getElementById("ssid");
+    var pwdText = document.getElementById("pwd");
+    function c(ssid) {
+        ssidText.value = ssid;
+        pwdText.scrollIntoView();
+        pwdText.value = "";
+        pwdText.focus();
+    }
+</script>
+
+</html>
