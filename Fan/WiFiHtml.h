@@ -29,21 +29,21 @@ const char input[] PROGMEM = R"KEWL(<tr>
                         <td colspan='2' class='bb'>WiFi名称: </td>
                     </tr>
                     <tr>
-                        <td colspan='2' class='ssid'><input class='input' type='text' value='CMCC-FreeWiFi'
+                        <td colspan='2' class='ssid'><input class='input' type='text' value=''
                                 placeholder='输入WiFi名称' name='ssid' id="ssid"></td>
                     </tr>
                     <tr>
                         <td colspan='2' class='bb'>WiFi密码: </td>
                     </tr>
                     <tr>
-                        <td colspan='2' class='ssid'><input class='input' type='password' value='3.1415926'
+                        <td colspan='2' class='ssid'><input class='input' type='password' value=''
                                 placeholder='输入WiFi密码' name='password' id="pwd"></td>
                     </tr>
                     <tr>
                         <td colspan='2' class='bb'>点灯密钥: </td>
                     </tr>
                     <tr>
-                        <td colspan='2' class='ssid'><input class='input' type='text' value='bdcdc3404089'
+                        <td colspan='2' class='ssid'><input class='input' type='text' value=''
                                 placeholder='输入点灯密钥' name='authkey'></td>
                     </tr>
                     <tr>

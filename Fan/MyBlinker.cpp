@@ -20,12 +20,12 @@ String MyBlinker::getPage()
     scanResult = WiFi.scanNetworks(/*async=*/false, /*hidden=*/false);
     if (scanResult == 0)
     {
-        Serial.println(F("没有扫描到WiFi信息"));
+        // Serial.println(F("没有扫描到WiFi信息"));
         wifiList += "<tr><td colspan='2' style='text-align:conter'>没有扫描到WiFi信息</td></tr>";
     }
     else if (scanResult > 0)
     {
-        Serial.printf(PSTR("%d 扫描到WiFi:\n"), scanResult);
+        // Serial.printf(PSTR("%d 扫描到WiFi:\n"), scanResult);
         bool isHave = 0;
         int count = 0;
         String *ssids = new String[20];
@@ -42,7 +42,7 @@ String MyBlinker::getPage()
             }
             if (!isHave)
             {
-                Serial.println((String)(count + 1) + ": " + ssid + " " + rssi + "dB");
+                // Serial.println((String)(count + 1) + ": " + ssid + " " + rssi + "dB");
                 ssids[count] = ssid.c_str();
                 wifiList += "<tr><td><div onclick=\"c('" + ssid + "')\" class='ssidList'>" + ssid + "</div></td><td style='text-align:right;width:35px'><div onclick=\"c('" + ssid + "')\" class='ssidList' style='text-align:right'>选择</div></td></tr>";
                 if (count == 20)
@@ -56,7 +56,7 @@ String MyBlinker::getPage()
     }
     else
     {
-        Serial.printf(PSTR("WiFi scan error %d"), scanResult);
+        // Serial.printf(PSTR("WiFi scan error %d"), scanResult);
         wifiList += "<tr><td colspan='2' style='text-align:conter'>WiFi扫描出错！</td></tr>";
     }
     page += FPSTR(title);
