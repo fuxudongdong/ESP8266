@@ -17,12 +17,15 @@ const char title[] PROGMEM = R"KEWL(<!DOCTYPE html
             <div class='bb' style='text-align:center;'>
                 <table style='width:100%' ;>
                 <tr>
-                        <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">风扇配网</td>
-                    </tr>
+                        <td colspan='2' class='ssid' style="font-size:40px;font-weight: bold">)KEWL";
+
+const char titleTd[] PROGMEM = R"KEWL(</td></tr>
                     <tr>
                         <td colspan='2' class='ssid'></td>
                     </tr>)KEWL";
-const char input[] PROGMEM = R"KEWL(<tr>
+
+const char input[] PROGMEM = R"KEWL(
+                    <tr>
                         <td colspan='2' class='ssid'></td>
                     </tr>
                     <tr>
@@ -112,7 +115,6 @@ const char input[] PROGMEM = R"KEWL(<tr>
         ssidText.value = ssid;
         pwdText.scrollIntoView();
         pwdText.value = "";
-        pwdText.focus();
     }
 </script>
 

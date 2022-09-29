@@ -90,6 +90,7 @@ void handleRootPost()
 void webServerStart()
 {
     Serial.println("正在启动web配网模式");
+    mb.setTitle("风扇配网");
     if (dnsServer.start(DNS_PORT, "*", apIP))
     { //判断将所有地址映射到esp8266的ip上是否成功
         Serial.println("DNS服务已启动");

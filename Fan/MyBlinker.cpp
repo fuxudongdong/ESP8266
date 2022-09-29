@@ -5,6 +5,11 @@
 
 MyBlinker::MyBlinker() {}
 
+void MyBlinker::setTitle(String _title)
+{
+    htmlName = _title;
+}
+
 String MyBlinker::getPage()
 {
     String page = "";
@@ -28,7 +33,7 @@ String MyBlinker::getPage()
         // Serial.printf(PSTR("%d 扫描到WiFi:\n"), scanResult);
         bool isHave = 0;
         int count = 0;
-        String *ssids = new String[20];
+        String *ssids = new String[50];
         for (int i = 0; i < scanResult; i++)
         {
             WiFi.getNetworkInfo(i, ssid, encryptionType, rssi, bssid, channel, hidden);
@@ -45,7 +50,7 @@ String MyBlinker::getPage()
                 // Serial.println((String)(count + 1) + ": " + ssid + " " + rssi + "dB");
                 ssids[count] = ssid.c_str();
                 wifiList += "<tr><td><div onclick=\"c('" + ssid + "')\" class='ssidList'>" + ssid + "</div></td><td style='text-align:right;width:35px'><div onclick=\"c('" + ssid + "')\" class='ssidList' style='text-align:right'>选择</div></td></tr>";
-                if (count == 20)
+                if (count == 50)
                 {
                     break;
                 }
@@ -60,6 +65,8 @@ String MyBlinker::getPage()
         wifiList += "<tr><td colspan='2' style='text-align:conter'>WiFi扫描出错！</td></tr>";
     }
     page += FPSTR(title);
+    page += htmlName;
+    page += FPSTR(titleTd);
     page += wifiList;
     page += FPSTR(input);
     // Serial.println(page);
